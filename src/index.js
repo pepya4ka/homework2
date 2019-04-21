@@ -23,21 +23,13 @@ async function loadCurrency() {
 
   const result = Object.create(null);
   for (let i = 0; i < rates.length; i++) {
-    // const rateTag = rates.item(i);
-    // const rate = rateTag.getAttribute("rate");
-    // const currency = rateTag.getAttribute("currency");
-    // result[currency] = rate;
 
     const rateTag = rates.item(i);
-    // const rate = rateTag.getAttribute("max");
-    // const rate = (rateTag.getAttribute("max") + rateTag.getAttribute("min"));
     const rate = String( ( (1 * rateTag.getAttribute("max")) + (1 * rateTag.getAttribute("min")) ) / 2 );
     const dateTag = dates.item(i);
     const date = dateTag.getAttribute("hour");
     result[date] = rate;
   }
-  // result["EUR"] = 1;
-  // result["RANDOM"] = 1 + Math.random();
   return result;
 }
 
@@ -59,10 +51,6 @@ async function loadCurrency1() {
 
   const result = Object.create(null);
   for (let i = 0; i < rates.length; i++) {
-    // const rateTag = rates.item(i);
-    // const rate = rateTag.getAttribute("rate");
-    // const currency = rateTag.getAttribute("currency");
-    // result[currency] = rate;
 
     const rateTag = rates.item(i);
     const rate = String( ( (1 * rateTag.getAttribute("max")) + (1 * rateTag.getAttribute("min")) ) / 2 );
@@ -70,41 +58,16 @@ async function loadCurrency1() {
     const date = dateTag.getAttribute("hour");
     result[date] = rate;
   }
-  // result["EUR"] = 1;
-  // result["RANDOM"] = 1 + Math.random();
   return result;
 }
-
-
-// function normalizeDataByCurrency(data, currency) {
-//   const result = Object.create(null);
-//   const value = data[currency];
-//   for (const key of Object.keys(data)) {
-//     result[key] = value / data[key];
-//   }
-//   return result;
-// }
 
 const buttonBuild = document.getElementById("btn");
 const canvasCtx = document.getElementById("out").getContext("2d");
 buttonBuild.addEventListener("click", async function() {
   const currencyData = await loadCurrency();
-  // const normalData = normalizeDataByCurrency(currencyData, "RUB");
-
-
-  // const keys = Object.keys(currencyData).sort((k1, k2) =>
-  //   compare(currencyData[k1], currencyData[k2])
-  // );
-  // const plotData = keys.map(key => currencyData[key]);
 
   const keys = Object.keys(currencyData);
   const plotData = keys.map(key => currencyData[key]);
-
-  // const currencyData1 = await loadCurrency1();
-  // const keys1 = Object.keys(currencyData1).sort((k1, k2) =>
-  //   compare(currencyData1[k1], currencyData1[k2])
-  // );
-  // const plotData1 = keys1.map(key => currencyData1[key]);
 
   const currencyData1 = await loadCurrency1();
   const keys1 = Object.keys(currencyData1);
