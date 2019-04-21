@@ -116,7 +116,7 @@ buttonBuild.addEventListener("click", async function() {
         },
         {
           label: "Температура по ощущениям",
-          backgroundColor: "rgb(20, 130, 50)",
+          backgroundColor: "rgb(20, 130, 50, 0.8)",
           borderColor: "rgb(10, 200, 50)",
           data: plotData1
         }
