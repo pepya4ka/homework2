@@ -90,17 +90,25 @@ const canvasCtx = document.getElementById("out").getContext("2d");
 buttonBuild.addEventListener("click", async function() {
   const currencyData = await loadCurrency();
   // const normalData = normalizeDataByCurrency(currencyData, "RUB");
-  const keys = Object.keys(currencyData).sort((k1, k2) =>
-    compare(currencyData[k1], currencyData[k2])
-  );
+
+
+  // const keys = Object.keys(currencyData).sort((k1, k2) =>
+  //   compare(currencyData[k1], currencyData[k2])
+  // );
+  // const plotData = keys.map(key => currencyData[key]);
+
+  const keys = Object.keys(currencyData);
   const plotData = keys.map(key => currencyData[key]);
 
-  const currencyData1 = await loadCurrency1();
-  const keys1 = Object.keys(currencyData1).sort((k1, k2) =>
-    compare(currencyData1[k1], currencyData1[k2])
-  );
-  const plotData1 = keys1.map(key => currencyData1[key]);
+  // const currencyData1 = await loadCurrency1();
+  // const keys1 = Object.keys(currencyData1).sort((k1, k2) =>
+  //   compare(currencyData1[k1], currencyData1[k2])
+  // );
+  // const plotData1 = keys1.map(key => currencyData1[key]);
 
+  const currencyData1 = await loadCurrency1();
+  const keys1 = Object.keys(currencyData1);
+  const plotData1 = keys1.map(key => currencyData1[key]);
 
   const chartConfig = {
     type: "line",
